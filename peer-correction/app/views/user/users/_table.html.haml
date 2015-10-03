@@ -1,0 +1,15 @@
+#table
+  - if @papers.any?
+    %table.table.table-bordered.table-hover
+      %thead
+      %tr
+        %th Name
+        %th Grade
+      %tbody
+        = render partial: 'paper', collection: @papers
+      %tfoot
+        %tr
+          %td{colspan: 8}
+            = "Count: #{@papers.count}"
+  - else
+    You have no papers

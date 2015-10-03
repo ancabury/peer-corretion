@@ -1,0 +1,20 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+
+  %body
+    .container-fluid{:style=> 'margin-top: 40px; padding-top: 10px'}
+      = render partial: '/shared/messages'
+
+      - if user_signed_in?
+        %h1
+          = current_user.name
+
+        .row-fluid
+          .span2
+            = render partial: '/user/shared/navigation'
+          .span10
+            = yield
+      - else
+        = yield
