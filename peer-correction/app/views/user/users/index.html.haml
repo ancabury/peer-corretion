@@ -1,5 +1,9 @@
-%h2
-  My papers
+.span5
+  %h2
+    My papers
+
+  %div
+    = link_to '<i class="glyphicon glyphicon-upload"></i>Upload'.html_safe, "#"
 
 .clear
-  = render 'table'
+= render 'table'

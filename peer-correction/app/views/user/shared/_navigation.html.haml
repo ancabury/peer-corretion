@@ -1,8 +1,10 @@
-%lu.nav.nav-tabs.nav-stacked
-  %li.nav-header
-  %li
-    = link_to '<i class="icon-home"></i>Home'.html_safe,  user_root_path
-  .clear
-
-  %li
-    = link_to '<i class="icon-pencil"></i>Papers'.html_safe,  user_root_path
+%div#sidebar-wrapper
+  %ul.sidebar-nav
+    %li.sidebar-brand
+      = current_user.name
+    %li
+      = link_to '<i class="glyphicon glyphicon-home"></i>Home'.html_safe,  "#timeline"
+    %li
+      = link_to '<i class="glyphicon glyphicon-file"></i>Papers'.html_safe,  user_root_path
+    %li
+      = link_to '<i class="glyphicon glyphicon-tasks"></i>Pending corrections'.html_safe,  "#"

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'user/users#index'
   namespace :user do
-    root to: 'usesr#index'
+    root to: 'users#index'
   end
   devise_for :users, only: [:sessions, :passwords]
 end
