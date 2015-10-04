@@ -1,0 +1,16 @@
+#table
+  %table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Uploader
+        %th Upload date
+        %th Action
+    %tbody
+      %tr
+        %td
+          = @paper.name
+        %td
+          = @paper.user.name
+        %td
+          = @paper.created_at.to_formatted_s(:long)

@@ -1,0 +1,7 @@
+%tr
+  %td
+    = user.name
+  %td
+    = user.score
+  %td
+    = user.last_sign_in_at.to_formatted_s(:long) if user.last_sign_in_at

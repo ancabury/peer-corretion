@@ -1,9 +1,8 @@
-.span5
-  %h2
-    My papers
+%h2.span5
+  My papers
 
-  %div
-    = link_to '<i class="glyphicon glyphicon-upload"></i>Upload'.html_safe, "#"
+  %div.btn-group.pull-right.pull-inline
+    = link_to '<i class="glyphicon glyphicon-upload"></i>Upload'.html_safe, "#",  class: 'btn btn-large btn-info'
 
 .clear
 = render 'table'

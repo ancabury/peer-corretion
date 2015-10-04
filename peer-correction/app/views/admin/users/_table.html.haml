@@ -1,0 +1,16 @@
+#table
+  - if @users.any?
+    %table.table.table-bordered.table-hover
+      %thead
+      %tr
+        %th Name
+        %th Score
+        %th Last sign in
+      %tbody
+        = render partial: 'user', collection: @users
+      %tfoot
+        %tr
+          %td{colspan: 2}
+            = "Count: #{@users.count}"
+  - else
+    There are no users to show.

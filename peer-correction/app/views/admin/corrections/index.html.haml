@@ -1,0 +1,13 @@
+%h2.span5
+  Paper
+= render 'paper_info'
+
+.clear
+%h2.span5
+  Correctors
+
+.clear
+= render 'table'
+
+%div.btn-group.pull-right.pull-inline
+  = link_to 'Assign corrector'.html_safe,  new_admin_paper_correction_path(params[:paper_id]) , class: "btn btn-primary"

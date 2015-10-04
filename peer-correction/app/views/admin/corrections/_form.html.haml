@@ -1,0 +1,6 @@
+= simple_form_for @correction, url: url, html: { class: 'form-horizontal' } do |f|
+  .form-inputs
+    = f.input :user, collection: User::USERS, label: "Users"
+
+  .form-actions
+    = f.button :submit, "Save", class: "btn-primary"

@@ -1,0 +1,5 @@
+%tr
+  %td
+    = corrector.name
+  %td
+    = User.find_grade(corrector, params[:paper_id])

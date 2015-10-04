@@ -64,6 +64,12 @@
   @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 }
 
+.alert-notice {
+  background-color: #d9edf7;
+  border-color: adjust-hue(#d9edf7, -10), 7%;
+  color: #3a87ad;
+}
+
 .alert-warning {
   @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 }

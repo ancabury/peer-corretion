@@ -1,0 +1,15 @@
+#table
+  - if @correctors.any?
+    %table.table.table-bordered.table-hover
+      %thead
+      %tr
+        %th Name
+        %th Grade
+      %tbody
+        = render partial: 'corrector', collection: @correctors
+      %tfoot
+        %tr
+          %td{colspan: 2}
+            = "Count: #{@correctors.count}"
+  - else
+    There are no correctors for this paper.

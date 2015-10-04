@@ -1,0 +1,11 @@
+%tr
+  %td
+    = paper.name
+  %td
+    = paper.user.name
+  %td
+    = paper.created_at.to_formatted_s(:long)
+  %td
+    = link_to '<i class="glyphicon glyphicon-file"></i>View'.html_safe,  "#", class: "btn btn-info"
+    = link_to 'Assign corrector'.html_safe,  new_admin_paper_correction_path(paper.id) , class: "btn btn-primary"
+    = link_to '<i class="glyphicon glyphicon-user"></i>See correctors'.html_safe, admin_paper_corrections_path(paper.id), class: "btn btn-info"

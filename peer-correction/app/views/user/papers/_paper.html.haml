@@ -2,6 +2,8 @@
   %td
     = paper.name
   %td
+    = paper.user.name
+  %td
     = paper.created_at.to_formatted_s(:long)
   %td
     - if paper.user_id == current_user.id

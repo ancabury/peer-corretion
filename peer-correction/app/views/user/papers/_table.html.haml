@@ -4,6 +4,7 @@
       %thead
       %tr
         %th Name
+        %th Uploader
         %th Upload date
         %th Grade
         %th Action
@@ -11,7 +12,7 @@
         = render partial: 'paper', collection: @papers
       %tfoot
         %tr
-          %td{colspan: 4}
+          %td{colspan: 5}
             = "Count: #{@papers.count}"
   - else
     There are no papers to show.
