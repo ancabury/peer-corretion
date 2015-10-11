@@ -1,0 +1,11 @@
+%h2.span5
+  Add new paper
+
+= simple_form_for :paper, url: user_user_papers_path(current_user) do |f|
+  .form-inputs
+    = f.input :name
+    = f.input :paper_file, as: :file
+
+  .form-actions
+    = f.button :submit, "Upload", class: "btn-primary"
+

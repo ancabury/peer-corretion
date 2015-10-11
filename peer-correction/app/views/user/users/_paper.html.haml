@@ -9,4 +9,5 @@
     - else
       = ""
   %td
-    = link_to '<i class="glyphicon glyphicon-file"></i>View'.html_safe,  "#"
+    = link_to '<i class="glyphicon glyphicon-file"></i>View'.html_safe, user_user_paper_path(current_user, paper), class: "btn btn-info"
+    = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe, user_user_paper_download_path(current_user, paper), class: "btn btn-primary"

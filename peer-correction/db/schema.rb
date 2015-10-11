@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004155336) do
+ActiveRecord::Schema.define(version: 20151011160250) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -43,9 +43,14 @@ ActiveRecord::Schema.define(version: 20151004155336) do
   create_table "papers", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.integer  "grade",      default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "grade",                   default: 0
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "paper_file_file_name"
+    t.string   "paper_file_content_type"
+    t.integer  "paper_file_file_size"
+    t.datetime "paper_file_updated_at"
+    t.string   "path"
   end
 
   create_table "users", force: :cascade do |t|

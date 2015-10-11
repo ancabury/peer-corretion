@@ -6,8 +6,6 @@ calculate score for user based on the grades he get`s for all papers uploaded
 
 calculate grade for each paper, based on all the grades for that paper
 
-upload/view file
-
 user delete file ?
 
-download file
+maybe add notification for user if admin deletes it`s paper

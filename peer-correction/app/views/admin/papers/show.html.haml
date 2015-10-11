@@ -1,0 +1,7 @@
+%h2.span5
+  = @paper.name
+
+= raw File.read(@paper.path)
+
+.clear
+= link_to '<i class="glyphicon glyphicon-trash"></i>Delete'.html_safe, admin_paper_path(@paper), method: :delete, class: "btn btn-danger", rel: :nofollow, data: { confirm: "Are you sure?", method: "delete" } rescue nil

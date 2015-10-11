@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root to: 'home#index'
     resources :papers do
       resources :corrections
+      get :download, to: "papers#download"
     end
     resources :users
   end
@@ -11,7 +12,11 @@ Rails.application.routes.draw do
   root to: 'user/papers#index'
   namespace :user do
     root to: 'users#index'
-    resources :papers
+    resources :users do
+      resources :papers do
+        get :download, to: "papers#download"
+      end
+    end
   end
 
   devise_for :users, only: [:sessions, :passwords]
