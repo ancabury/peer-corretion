@@ -4,7 +4,7 @@ class User::PapersController < ActionController::Base
   before_action :find_paper, only: [:show]
 
   def index
-    @papers = Paper.where('id NOT IN (?) and created_at > ?', Paper.joins(:corrections).pluck(:id).uniq, current_user.last_sign_in_at)
+    @papers = Paper.all
   end
 
   def new

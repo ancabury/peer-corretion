@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :papers do
         get :download, to: "papers#download"
       end
+      resources :corrections
     end
   end
 

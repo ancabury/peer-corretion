@@ -1,7 +1,7 @@
 class Admin::CorrectionsController < ApplicationController
   layout 'admin'
   before_action :authenticate_admin!
-  before_action :find_paper, only: [:index]
+  before_action :find_paper, only: [:index, :new]
 
   def index
     @correctors = User.joins(:corrections).where("paper_id = ?", params[:paper_id])
@@ -15,7 +15,7 @@ class Admin::CorrectionsController < ApplicationController
     @correction = Correction.create(correction_params)
     if @correction.valid?
       @correction.save
-      redirect_to  admin_root_url, flash: { success: "Correctors added" }
+      redirect_to admin_paper_corrections_path(@paper), flash: { success: "Correctors added" }
     else
       render 'new'
     end
@@ -23,7 +23,7 @@ class Admin::CorrectionsController < ApplicationController
 
   private
     def correction_params
-      params.require(:correction).permit(:user_id, :paper_id)
+      params.require(:correction).permit(:user_id, :paper_id, :grade)
     end
 
     def find_paper
