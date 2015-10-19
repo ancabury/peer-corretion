@@ -5,8 +5,8 @@ class Paper < ActiveRecord::Base
     validates_attachment_content_type :paper_file, content_type: /(.*).[doc|txt|docx|pdf]/
 
     def grade_it
-      grade = Correction.where(user_id: user_id).average(:grade)
-      save
+      self.grade = Correction.where(paper_id: id).average(:grade).to_f
+      self.save
     end
 
 end

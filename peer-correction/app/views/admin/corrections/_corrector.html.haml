@@ -1,5 +1,9 @@
 %tr
   %td
-    = corrector.name
+    = corrector.user.name
   %td
-    = User.find_grade(corrector, params[:paper_id])
+    = corrector.grade
+  %td
+    = corrector.observations
+  %td
+    = link_to '<i class="icon-trash icon-white"></i>Destroy'.html_safe,  admin_paper_correction_path(corrector.paper, corrector), method: :delete, class: "btn btn-danger", rel: :nofollow, data: { confirm: "Are you sure?", method: "delete" } rescue nil

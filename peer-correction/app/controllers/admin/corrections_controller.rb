@@ -1,10 +1,11 @@
 class Admin::CorrectionsController < ApplicationController
   layout 'admin'
   before_action :authenticate_admin!
-  before_action :find_paper, only: [:index, :new]
+  before_action :find_paper, only: [:index, :new, :create]
+  before_action :find_correction, only: [:destroy]
 
   def index
-    @correctors = User.joins(:corrections).where("paper_id = ?", params[:paper_id])
+    @correctors = Correction.where("paper_id = ?", params[:paper_id])
   end
 
   def new
@@ -21,6 +22,11 @@ class Admin::CorrectionsController < ApplicationController
     end
   end
 
+  def delete
+    @correction.destroy
+    redirect_to admin_paper_corrections_path(@paper), flash: { success: "Corrector destroyed" }
+  end
+
   private
     def correction_params
       params.require(:correction).permit(:user_id, :paper_id, :grade)
@@ -30,4 +36,7 @@ class Admin::CorrectionsController < ApplicationController
       @paper = Paper.find(params[:paper_id])
     end
 
+    def find_correction
+      @correction = Correction.find(params[:id])
+    end
 end

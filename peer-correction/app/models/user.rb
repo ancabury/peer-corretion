@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :papers
   has_many :corrections, dependent: :destroy
 
-  USERS = User.all
+  scope :all_correctors, -> (id) { where.not(id: id)}
 
   def has_corrections?
     if Correction.where(user: self).where("grade = 0.0").count > 0
@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
 
   def self.find_grade(corrector, paper_id)
     @grade ||= corrector.corrections.where("paper_id = ?", paper_id).first.grade
+  end
+
+  def calculate_score
+    self.score = Paper.where(user_id: id).average(:grade).to_f
+    self.save
   end
 
 end

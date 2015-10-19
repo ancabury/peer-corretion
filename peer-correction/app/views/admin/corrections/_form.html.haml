@@ -1,6 +1,6 @@
 = simple_form_for @correction, url: url, html: { class: 'form-horizontal' } do |f|
   .form-inputs
-    = f.input :user_id, collection: User::USERS, label: "Users"
+    = f.input :user_id, collection: User.all_correctors(@paper.user_id), label: "Users"
     = f.hidden_field :paper_id, value: @paper.id
     = f.hidden_field :grade, value: 0
 

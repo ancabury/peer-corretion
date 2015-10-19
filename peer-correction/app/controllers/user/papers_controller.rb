@@ -4,7 +4,7 @@ class User::PapersController < ActionController::Base
   before_action :find_paper, only: [:show]
 
   def index
-    @papers = Paper.all
+    @papers = Paper.order(created_at: :desc)
   end
 
   def new

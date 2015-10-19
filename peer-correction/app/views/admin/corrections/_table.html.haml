@@ -5,11 +5,13 @@
       %tr
         %th Name
         %th Grade
+        %th Obsevations
+        %th Actions
       %tbody
         = render partial: 'corrector', collection: @correctors
       %tfoot
         %tr
-          %td{colspan: 2}
+          %td{colspan: 4}
             = "Count: #{@correctors.count}"
   - else
     There are no correctors for this paper.
