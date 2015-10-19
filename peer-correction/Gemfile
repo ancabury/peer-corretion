@@ -31,11 +31,16 @@ gem 'devise', '~> 3.5.2'
 gem 'simple_form', '~> 3.2.0'
 gem 'paperclip', '~> 4.3.1'
 
+gem 'quiet_assets', '~> 1.1.0'
+
+#deploy
+gem 'unicorn', '~> 4.9'
+gem 'foreman', '~> 0.78.0'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'factory_girl_rails', '~> 4.0'
-  gem 'quiet_assets', '~> 1.1.0'
 end
 
 group :development do
