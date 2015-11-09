@@ -1,0 +1,16 @@
+%h2.span5
+  Paper
+= render 'paper_info'
+
+.clear
+%h2.span5
+  Correctors
+
+.clear
+= render 'table'
+
+.clear
+%h2
+  Add corrector
+
+= render partial: 'form', locals: { url:  admin_paper_corrections_path(params[:paper_id]), method: "create" }

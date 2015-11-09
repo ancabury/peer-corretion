@@ -1,0 +1,19 @@
+#table
+  %table.table.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Uploader
+        %th Upload date
+        %th Action
+    %tbody
+      %tr
+        %td
+          = @paper.name
+        %td
+          = @paper.user.name
+        %td
+          = @paper.created_at.to_formatted_s(:long)
+        %td
+          = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe,  admin_paper_download_path(@paper), class: "btn btn-primary"
+          = link_to '<i class="icon-trash icon-white"></i>Destroy'.html_safe,   admin_paper_path(@paper), method: :delete, class: "btn btn-danger", rel: :nofollow, data: { confirm: "Are you sure?", method: "delete" } rescue nil

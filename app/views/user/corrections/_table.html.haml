@@ -1,0 +1,16 @@
+#table
+  - if @corrections.any?
+    %table.table.table-bordered.table-hover
+      %thead
+      %tr
+        %th Name
+        %th Paper Name
+        %th Action
+      %tbody
+        = render partial: 'correction', collection: @corrections
+      %tfoot
+        %tr
+          %td{colspan: 3}
+            = "Count: #{@corrections.count}"
+  - else
+    You don't have any corrections to make.

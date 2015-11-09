@@ -1,0 +1,14 @@
+%tr
+  %td
+    = paper.name
+  %td
+    = paper.user.name
+  %td
+    = paper.created_at.to_formatted_s(:long)
+  %td
+    - if paper.user_id == current_user.id
+      = paper.grade
+    - else
+      = ""
+  %td
+    = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe, user_user_paper_download_path(current_user, paper), class: "btn btn-primary"
