@@ -14,8 +14,8 @@ class Admin::PapersController < ApplicationController
 
   def download
     paper = Paper.find(params[:paper_id])
-    extension = paper.paper_file_file_name.slice(0..paper.paper_file_file_name.index('.'))
-    if !['doc', 'txt', 'pdf'].include? extension
+    extension = paper.paper_file_file_name.split('.')[-1]
+    if ['doc', 'txt', 'pdf'].include? extension
       send_file paper.path, filename: paper.name, type: paper.paper_file_content_type, :x_sendfile=>true
     else
       redirect_to :back, flash: { error: 'The file type is not supported. (only pdf, txt, doc are accepted)' }
