@@ -34,8 +34,6 @@ gem 'paperclip', '~> 4.3.1'
 gem 'quiet_assets', '~> 1.1.0'
 
 gem 'pdf-reader', '~> 1.3', '>= 1.3.3'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 gem 'prawn'
 
 #deploy

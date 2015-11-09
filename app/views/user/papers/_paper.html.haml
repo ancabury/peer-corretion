@@ -1,8 +1,14 @@
 %tr
   %td
-    = paper.name
+    - if !paper.name.nil?
+      = paper.name
+    - else
+      = ""
   %td
-    = paper.user.name
+    - if !paper.user.name.nil?
+      = paper.user.name
+    - else
+      = "User doesn't want to display his/her name."
   %td
     = paper.created_at.to_formatted_s(:long)
   %td
