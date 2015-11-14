@@ -15,5 +15,5 @@
         %td
           = @paper.created_at.to_formatted_s(:long)
         %td
-          = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe,  admin_paper_download_path(@paper), class: "btn btn-primary"
+          = link_to '<i class="glyphicon glyphicon-open-file"></i>View'.html_safe, @paper.paper_file.url, class: "btn btn-primary", target: 'blank '
           = link_to '<i class="icon-trash icon-white"></i>Destroy'.html_safe,   admin_paper_path(@paper), method: :delete, class: "btn btn-danger", rel: :nofollow, data: { confirm: "Are you sure?", method: "delete" } rescue nil

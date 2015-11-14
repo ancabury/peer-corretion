@@ -8,4 +8,5 @@
   %td
     = link_to 'Assign corrector'.html_safe,  new_admin_paper_correction_path(paper.id) , class: "btn btn-primary"
     = link_to '<i class="glyphicon glyphicon-user"></i>See correctors'.html_safe, admin_paper_corrections_path(paper.id), class: "btn btn-info"
-    = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe,  admin_paper_download_path(paper), class: "btn btn-primary"
+    = link_to '<i class="glyphicon glyphicon-open-file"></i>View'.html_safe, paper.paper_file.url, class: "btn btn-primary", target: 'blank '
+

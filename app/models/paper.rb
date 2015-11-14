@@ -10,7 +10,7 @@ class Paper < ActiveRecord::Base
     validates_presence_of :name
 
     def grade_it
-      self.grade = Correction.where(paper_id: id).average(:grade).to_f
+      self.grade = Correction.where('paper_id = ? and grade != 0', id).average(:grade).to_f
       self.save
     end
 

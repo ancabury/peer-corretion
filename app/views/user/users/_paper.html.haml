@@ -9,4 +9,5 @@
     - else
       = ""
   %td
-    = link_to '<i class="glyphicon glyphicon-download-alt"></i>Download'.html_safe, user_user_paper_download_path(current_user, paper), class: "btn btn-primary"
+    = link_to '<i class="glyphicon glyphicon-open-file"></i>View'.html_safe, paper.paper_file.url, class: "btn btn-primary", target: 'blank'
+    =  render partial: "correctors", locals: { correctors:  paper.corrections }

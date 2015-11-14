@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def calculate_score
-    self.score = Paper.where(user_id: id).average(:grade).to_f
+    self.score = Paper.where('user_id = ? and grade != 0', id).average(:grade).to_f
     self.save
   end
 

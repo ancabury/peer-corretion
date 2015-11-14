@@ -4,7 +4,7 @@ class Admin::PapersController < ApplicationController
   before_action :find_paper, only: [:show, :destroy]
 
   def index
-    @papers = Paper.all
+    @papers = Paper.all.order(created_at: :desc)
   end
 
   def destroy

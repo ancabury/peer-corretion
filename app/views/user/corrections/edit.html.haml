@@ -3,7 +3,7 @@
 = render 'paper_info'
 
 %div.btn-group.read-paper-btn
-  = link_to 'Read paper'.html_safe, user_user_paper_download_path(current_user, @paper.id), class: "btn btn-primary"
+  = link_to 'Read paper'.html_safe, @paper.paper_file.url, class: "btn btn-primary", target: 'blank'
 
 .clear
 Before you grade a paper, you have to read it !
