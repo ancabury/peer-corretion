@@ -11,11 +11,6 @@ class User::PapersController < ActionController::Base
     @paper = Paper.new
   end
 
-  def client
-    creds  = AWS::Credentials.new(ENV['BUCKETEER_AWS_ACCESS_KEY_ID'], ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY'])
-    AWS::S3::Client.new(credentials: creds, region: 'us-east-1')
-  end
-
   def create
     @paper = Paper.create(paper_params)
     @paper.user_id = params[:user_id]
@@ -23,7 +18,6 @@ class User::PapersController < ActionController::Base
       @paper.save
       redirect_to user_root_path, flash: { success: "Paper added" }
     else
-      # flash[:error]= @paper.errors.messages[:name].first if @paper.errors.messages[:name]
       render 'new'
     end
   end

@@ -11,7 +11,8 @@ class User::CorrectionsController < ApplicationController
   end
 
   def update
-    if @correction.update_attributes(correction_params)
+    @correction.update_attributes(correction_params)
+    if @correction.save
       @paper.grade_it
       @paper.user.calculate_score
       redirect_to user_user_corrections_path(current_user.id), flash: { success: "Paper graded!" }

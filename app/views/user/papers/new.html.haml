@@ -1,7 +1,7 @@
 %h2.span5
   Add new paper
 
-= simple_form_for :paper, url: user_user_papers_path(current_user), multipart: true do |f|
+= simple_form_for @paper, url: user_user_papers_path(current_user), multipart: true do |f|
   .form-inputs
     = f.input :name
     = f.input :paper_file, as: :file

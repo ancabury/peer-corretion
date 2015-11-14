@@ -1,9 +1,9 @@
 class Admin::CorrectionsController < ApplicationController
   layout 'admin'
   before_action :authenticate_admin!
-  before_action :find_paper, only: [:index, :new, :create]
+  before_action :find_paper, only: [:index, :new, :create, :destroy]
   before_action :find_correction, only: [:destroy]
-  before_action :all_corrections, except: [:delete]
+  before_action :all_corrections, except: [:destroy]
 
   def index
   end
@@ -18,11 +18,11 @@ class Admin::CorrectionsController < ApplicationController
       @correction.save
       redirect_to admin_paper_corrections_path(@paper), flash: { success: "Correctors added" }
     else
-      redirect_to new_admin_paper_correction_path, flash: {error: @correction.errors.messages[:user_id].first }
+      redirect_to new_admin_paper_correction_path
     end
   end
 
-  def delete
+  def destroy
     @correction.destroy
     redirect_to admin_paper_corrections_path(@paper), flash: { success: "Corrector destroyed" }
   end
