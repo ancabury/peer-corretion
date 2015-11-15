@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :corrections, dependent: :destroy
 
   def has_corrections?
-    if Correction.where(user: self).where("grade = 0.0").count > 0
+    if Correction.where(user: self).where("grade = 1.0").count > 0
       return true
     else
       return false

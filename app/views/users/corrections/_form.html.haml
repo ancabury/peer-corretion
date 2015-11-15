@@ -1,17 +1,18 @@
 .correction-content
   = simple_form_for @correction, url: url, html: { class: 'form-horizontal' } do |f|
+
     .form-inputs
       .form-group
         .row
           .col-md-3
             %label.text.optional{:for => "correction_grade"} Grade
           .col-md-6
-            %input#correction_grade.string.required{:max => "10", :min => "1", :name => "correction[grade]", :type => "text", :value => "0.0"}
+            = f.input :grade, as: :string, require: true, input_html: { max: 10, min: 1 }, label: false
         .row
           .col-md-3
             %label.text.optional{:for => "correction_observations"} Observations
           .col-md-6
-            %textarea#correction_observations.text.optional{:name => "correction[observations]"}
+            = f.input :observations, as: :text, label: false
 
       = f.hidden_field :paper_id, value: @paper.id
 

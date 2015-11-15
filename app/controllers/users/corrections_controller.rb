@@ -4,7 +4,7 @@ class Users::CorrectionsController < ApplicationController
   before_action :find_correction, only: [:edit, :update]
 
   def index
-    @corrections = Correction.where(user: current_user).where("grade = 0.0")
+    @corrections = Correction.where(user: current_user).where("grade = 1.0")
   end
 
   def edit
@@ -12,7 +12,8 @@ class Users::CorrectionsController < ApplicationController
 
   def update
     @correction.update_attributes(correction_params)
-    if @correction.save
+    if @correction.valid?
+      @correction.save
       @paper.grade_it
       @paper.user.calculate_score
       redirect_to users_user_corrections_path(current_user.id), flash: { success: "Paper graded!" }
