@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   end
   devise_for :admin, only: :sessions
 
-  root to: 'user/papers#index'
-  namespace :user do
+  root to: 'users/papers#index'
+  namespace :users do
     root to: 'users#index'
     resources :users do
       resources :papers do

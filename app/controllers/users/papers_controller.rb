@@ -1,4 +1,4 @@
-class User::PapersController < ActionController::Base
+class Users::PapersController < ActionController::Base
   layout 'user'
   before_action :authenticate_user!
   before_action :find_paper, only: [:show]
@@ -16,7 +16,7 @@ class User::PapersController < ActionController::Base
     @paper.user_id = params[:user_id]
     if @paper.valid?
       @paper.save
-      redirect_to user_root_path, flash: { success: "Paper added" }
+      redirect_to users_root_path, flash: { success: "Paper added" }
     else
       render 'new'
     end

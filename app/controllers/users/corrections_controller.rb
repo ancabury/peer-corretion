@@ -1,4 +1,4 @@
-class User::CorrectionsController < ApplicationController
+class Users::CorrectionsController < ApplicationController
   layout 'user'
   before_action :authenticate_user!
   before_action :find_correction, only: [:edit, :update]
@@ -15,7 +15,7 @@ class User::CorrectionsController < ApplicationController
     if @correction.save
       @paper.grade_it
       @paper.user.calculate_score
-      redirect_to user_user_corrections_path(current_user.id), flash: { success: "Paper graded!" }
+      redirect_to users_user_corrections_path(current_user.id), flash: { success: "Paper graded!" }
     else
       render 'edit'
     end

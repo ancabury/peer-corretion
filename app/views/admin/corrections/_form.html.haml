@@ -1,13 +1,16 @@
-= simple_form_for @correction, url: url do |f|
-  .form-inputs
-    .form-group.select.required{}
-      %label.select.required.control-label{for: :user_id}
-        %abbr{title: 'required'} *
-        = 'Users'
-      = f.collection_select(:user_id, User.all_correctors(@paper.user_id), :id, :email)
+.correction-content
+  = simple_form_for @correction, url: url do |f|
+    .row
+      .form-inputs
+        .form-group.select.required{}
+          %label.select.required.control-label{for: :user_id}
+            %abbr{title: 'required'} *
+            = 'Users'
+          = f.collection_select(:user_id, User.available_correctors(@paper.corrections.pluck(:user_id) <<@paper.user_id), :id, :email)
 
-    = f.hidden_field :paper_id, value: @paper.id
-    = f.hidden_field :grade, value: 0
+        = f.hidden_field :paper_id, value: @paper.id
+        = f.hidden_field :grade, value: 0
 
-  .form-actions.pull-left
-    = f.button :submit, "Save", class: "btn-primary"
+    .row
+      .form-actions
+        = f.button :submit, "Save", class: "btn-primary"

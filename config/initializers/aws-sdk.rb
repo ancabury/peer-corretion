@@ -9,8 +9,8 @@
 # AWS.config[:region]      = 'us-east-1'
 
 AWS.config({
-  :access_key_id => 'AKIAISY6O7IKQ3HHDVPQ',
-  :secret_access_key => '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',
+  :access_key_id => ENV['BUCKETEER_AWS_ACCESS_KEY_ID'],
+  :secret_access_key => ENV['BUCKETEER_AWS_SECRET_ACCESS_KEY'],
   :region => 'us-west-2',
 })
 

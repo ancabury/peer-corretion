@@ -5,11 +5,11 @@
 %div.btn-group.read-paper-btn
   = link_to 'Read paper'.html_safe, @paper.paper_file.url, class: "btn btn-primary", target: 'blank'
 
-.clear
+%p
 Before you grade a paper, you have to read it !
 
 .clear
 %h3.span5
   Grade Paper
 %div.pull-left
-  = render partial: "form", locals: {url: user_user_correction_path(current_user, @correction.id), method: "update"}
+  = render partial: "form", locals: {url: users_user_correction_path(current_user, @correction.id), method: "update"}

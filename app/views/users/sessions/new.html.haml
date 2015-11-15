@@ -7,7 +7,7 @@
             %strong Log In
           .description
             %p
-              You are going to login as admin on the platform.
+              You are going to login on the platform.
 
       .row-login
         .col-sm-6.col-sm-offset-3.form-box
@@ -25,8 +25,8 @@
             = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
               .form-inputs
                 .input.email.optional.admin_email
-                  %input#admin_email.string.email.optional{:autofocus => "autofocus", :name => "admin[email]", :placeholder => "Email", :type => "email", :value => ""}
-                  %input#admin_password.password.optional{:name => "admin[password]", :placeholder => "Password", :type => "password"}
+                  %input#admin_email.string.email.optional{:autofocus => "autofocus", :name => "user[email]", :placeholder => "Email", :type => "email", :value => ""}
+                  %input#admin_password.password.optional{:name => "user[password]", :placeholder => "Password", :type => "password"}
 
               .form-actions
                 %button#submit{type: 'submit'}

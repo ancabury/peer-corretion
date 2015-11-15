@@ -1,4 +1,4 @@
-class User::UsersController < ActionController::Base
+class Users::UsersController < ActionController::Base
   layout 'user'
   before_action :authenticate_user!
 

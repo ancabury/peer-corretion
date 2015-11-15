@@ -11,7 +11,7 @@
     %div#wrapper
 
       - if user_signed_in?
-        = render partial: '/user/shared/navigation'
+        = render partial: '/users/shared/navigation'
         %div#page-content-wrapper
           = render partial: '/shared/messages'
           = yield

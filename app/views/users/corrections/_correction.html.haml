@@ -1,0 +1,7 @@
+%tr
+  %td
+    = correction.paper.user.name
+  %td
+    = correction.paper.name
+  %td
+    = link_to 'Grade'.html_safe, edit_users_user_correction_path(current_user, correction.id), class: "btn btn-primary"

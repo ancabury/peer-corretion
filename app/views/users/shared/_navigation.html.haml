@@ -1,0 +1,15 @@
+%div#sidebar-wrapper
+  %ul.sidebar-nav
+    %li.sidebar-brand
+      = current_user.name
+    %li
+      = link_to '<i class="glyphicon glyphicon-home"></i>Home'.html_safe,  users_user_papers_path(current_user)
+    %li
+      = link_to '<i class="glyphicon glyphicon-file"></i>Papers'.html_safe,    users_root_path
+    %li
+      - if current_user.has_corrections?
+        = link_to '<i class="glyphicon glyphicon-tasks"></i>Pending corrections'.html_safe, users_user_corrections_path(current_user), style: 'color:red'
+      - else
+        = link_to '<i class="glyphicon glyphicon-tasks"></i>Pending corrections'.html_safe, users_user_corrections_path(current_user), style: 'color:#999'
+    %li
+      = link_to '<i class="glyphicon glyphicon-off"></i>Sign out'.html_safe,    destroy_user_session_path, :method => :delete

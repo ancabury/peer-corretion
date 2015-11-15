@@ -1,0 +1,8 @@
+%h2.span5
+  My papers
+
+  %div.btn-group.pull-right.pull-inline
+    = link_to '<i class="glyphicon glyphicon-upload"></i>Upload'.html_safe,  new_users_user_paper_path(current_user),  class: 'btn btn-large btn-info'
+
+.clear
+= render 'table'
