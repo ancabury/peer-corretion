@@ -22,8 +22,6 @@ gem 'quiet_assets', '~> 1.1.0'
 gem 'unicorn', '~> 4.9'
 gem 'foreman', '~> 0.78.0'
 
-gem "aws-sdk", "< 2.0"
-
 group :development, :test do
   gem 'pry-rails'
   gem 'pry-byebug'
