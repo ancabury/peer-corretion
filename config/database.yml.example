@@ -4,8 +4,8 @@ base: &base
   pool: 5
   host: localhost
   timeout: 5000
-  password: root
-  username: postgres
+  password:
+  username:
 
 development:
   database: dev_peer_correction
